@@ -79,6 +79,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 <html lang="en" data-bs-theme="auto">
 
 <head>
+    <style>
+body{background-color: aliceblue;}
+.box1{background-color: greenyellow; padding: 10px; border: 1px solid green; margin-bottom: 20px; }
+
+    </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -99,12 +104,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     <link href="https://getbootstrap.com/docs/5.3/examples/sign-in/sign-in.css" rel="stylesheet" />
 </head>
 
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
+<body class="d-flex align-items-center py-4 bg-body-tertiary" >
     <main class="form-signin w-100 m-auto">
-     
+     <div class="box1">
         <h4>Credenziali pannello di controllo:</h4>
         <p><b>Username:</b> admin</p>
-        <p><b>Password:</b> password</p>
+        <p><b>Password:</b> password</p></div>
 
         <form action="index.php" method="POST">
             <h1 class="h3 mb-3 fw-normal text-center">LOGIN</h1>

@@ -75,6 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
+    <style>
+body{background-color: aliceblue;}
+.box1{background-color: greenyellow; padding: 10px; border: 1px solid green; margin-bottom: 20px; }
+
+    </style>
 </head>
 
 <body>
@@ -85,9 +90,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         </div>
     </nav>
     <div class="container my-5">
+        <div class="box1">
         <h1 class="text-center">Ciao <?php echo isset($_SESSION['nomeutente']) ? $_SESSION['nomeutente'] : "Ospite"; ?></h1>
-        <p class="text-center">Grazie per esserti registrato presso Palaservice srls</p>
-        <div class="list-group">
+        <p class="text-center">Grazie per esserti registrato presso Palaservice srls</p></div>
+        <div class="list-group mt-5">
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="card-body">
                     <h5 class="card-title">Aggiungi nuovo libro</h5>
@@ -105,10 +111,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
                 </div>
             </a>
             <?php foreach ($books as $book) { ?>
-                <div class="list-group-item list-group-item-action">
+                <div class="list-group-item list-group-item-action mt-5">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $book['title']; ?></h5>
-                        <p class="card-text"><?php echo $book['description']; ?></p>
+                        <h5 class="card-title" style="text-align: center;"><?php echo $book['title']; ?></h5>
+                        <hr>
+                        <p class="card-text " style="text-align: center;" ><?php echo $book['description']; ?></p>
+               
                         <div id="editBookForm_<?php echo $book['id']; ?>" class="d-none">
                             <div class="mb-3">
                                 <label for="editTitle_<?php echo $book['id']; ?>" class="form-label">Nuovo Titolo</label>
@@ -120,8 +128,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
                             </div>
                             <button type="button" class="btn btn-primary" onclick="saveBookChanges(<?php echo $book['id']; ?>)">Salva Modifiche</button>
                         </div>
-                        <button class="btn btn-primary" onclick="showEditForm(<?php echo $book['id']; ?>)">Modifica</button>
-                        <button class="btn btn-danger" onclick="deleteBook(<?php echo $book['id']; ?>)">Elimina</button>
+                        <button class="btn btn-primary "  onclick="showEditForm(<?php echo $book['id']; ?>)">Modifica</button>
+                        <button class="btn btn-danger " onclick="deleteBook(<?php echo $book['id']; ?>)">Elimina</button>
                     </div>
                 </div>
             <?php } ?>
